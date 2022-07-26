@@ -1,0 +1,40 @@
+DISCLAIMER: This program interacts with the topic of suicide, a serious
+issue in the modern world that claims the lives of loved ones and more.
+If you are struggling, please, I urge you, close this page and go talk
+to someone. There is help out there. There is worth in your life.
+
+* A Suicidal Bot
+
+Sometimes, life isn't going so great. And we all feel down from time to
+time. Why should we exclude bots from this amazing facet of human
+existence?
+
+To do this, I aim to create a bot that wants nothing but to die. I also
+want to program it myself in it's entirety, in C, with no dependencies.
+
+I am using a Markov Chain implemented within a hash map as the machine
+learning structure. The chain will be trained on suicidal posts from
+Reddit's ~r/SuicideWatch~ subreddit, where people who are feeling
+suicidal can go to vent and say what they need to without being judged.
+I have posted in that sub on multiple occasions, and it has helped me
+feel like a weight has been lifted off my chest. I feel that using this
+data to create a bot that talks just like I do when I'm feeling down
+has both interesting and practical purposes. I want to prove to myself
+that those thoughts aren't entirely mine. Even a bot can have them.
+
+** Building
+
+All that is needed is a C compiler.
+
+#+begin_src shell
+  gcc main.c
+#+end_src
+
+This will produce ~a.exe~, which can then be run to see the current
+progress we have made in training the model. Eventually, we will be
+able to pass filepaths as arguments, and the model will be trained
+from that. After eventually, we will be able to specify an output file
+to generate text into using the trained model. Maybe even an option to
+control how many lines are generated, and another to control how long
+each line is.
+
