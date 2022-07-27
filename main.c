@@ -101,6 +101,10 @@ MarkovModel markov_model_create(size_t count) {
 
 void markov_model_add_word(MarkovModel model, MarkovContext context, char *word) {
   if (!word) { return; }
+  // FIXME: THIS IS WRONG!
+  // TODO:  Hash each string within the context, not the addresses of them.
+  // This is needed because we free and strdup in a row, and the OS may give
+  // us the same allocated memory block.
   size_t hash = get_hash_from_bytes((char *)&context, sizeof(MarkovContext));
   size_t index = hash % model.capacity;
   SandCastle *sand_castle = &model.sand_castles[index];
@@ -145,7 +149,7 @@ void markov_model_add_word(MarkovModel model, MarkovContext context, char *word)
     // START_SAND_CASTLE     -> NEW_SAND_CASTLE         -> NULL
     SandCastle *new_sand_castle = malloc(sizeof(SandCastle));
     assert(new_sand_castle && "Could not allocate single sand_castle for hash map sand_castle linked list.");
-    new_sand_castle->context = context;
+    new_sand_castle->context = markov_context_copy(context);
     new_sand_castle->value = markov_value_create(NULL, word);
     new_sand_castle->next = start_sand_castle->next;
     start_sand_castle->next = new_sand_castle;
