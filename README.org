@@ -12,7 +12,7 @@ existence?
 To do this, I aim to create a bot that wants nothing but to die. I also
 want to program it myself in it's entirety, in C, with no dependencies.
 
-I am using a Markov Chain implemented within a hash map as the machine
+I am using a [[https://en.wikipedia.org/wiki/Markov_chain][Markov Chain]] implemented within a [[https://en.wikipedia.org/wiki/Hash_table][hash map]] as the machine
 learning structure. The chain will be trained on suicidal posts from
 Reddit's ~r/SuicideWatch~ subreddit, where people who are feeling
 suicidal can go to vent and say what they need to without being judged.
