@@ -22,6 +22,20 @@ data to create a bot that talks just like I do when I'm feeling down
 has both interesting and practical purposes. I want to prove to myself
 that those thoughts aren't entirely mine. Even a bot can have them.
 
+** Usage
+
+Once an executable is procured, run it from the command line with a
+path to training data (in text file format) as the first argument.
+
+The program will print some generated text, and then write a few
+thousand of those generated excerpts into a file. This is to save
+time, so that the bot doesn't need re-trained if you need more than
+one excerpt.
+
+Eventually, we will be able to specify an output file to generate text
+into using the trained model, as well as an option to control how many
+lines are generated, and another to control how long each line is.
+
 ** Building
 
 All that is needed is a C compiler.
@@ -30,11 +44,5 @@ All that is needed is a C compiler.
   gcc main.c
 #+end_src
 
-This will produce ~a.exe~, which can then be run to see the current
-progress we have made in training the model. Eventually, we will be
-able to pass filepaths as arguments, and the model will be trained
-from that. After eventually, we will be able to specify an output file
-to generate text into using the trained model. Maybe even an option to
-control how many lines are generated, and another to control how long
-each line is.
-
+This will produce ~a.exe~, which can then be run according to the usage
+section seen above.
