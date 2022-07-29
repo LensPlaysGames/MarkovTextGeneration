@@ -1,0 +1,52 @@
+* Training Data
+
+I have written a program in Pascal that will download the last three
+years of posts from reddit/r/SuicideWatch and store each post's body
+text as a new line within the output file.
+
+Huge shout-out to the [[https://github.com/pushshift/api][PushShift Reddit API,]] as without it I wouldn't be
+able to do this at all.
+
+To not make too many requests to the API, there is a one second delay
+between each request. This means that the program takes just over six
+minutes to collect the three years of data into a single file.
+
+I have also written a python program that decodes the escape sequences
+present in Reddit's literal body text (such as '\u2019' or '\n').
+
+** Usage
+
+First, ensure the proper dependencies are downloaded/installed.
+
+- [[https://www.freepascal.org/][Free Pascal Compiler]]
+
+- [[https://github.com/sysrpl/JsonTools][JsonTools for Pascal by Anthony Walter]]
+
+  Download ~jsontools.pas~ and place in same directory as ~main.pas~.
+
+- [[https://www.python.org/downloads/][Python 3]]
+
+
+With the proper dependencies installed, we can now begin compiling and
+running the program. First, compile the Pascal program that scrapes the
+PushShift Reddit API. If using a 64-bit machine, you may have to add
+the ~-Px86_64~ flag to compile properly.
+#+begin_src shell
+  fpc main.pas
+#+end_src
+
+Once compiled, run the generated executable. This will take over six
+minutes, as stated previously. Get up, stretch, and make some tea.
+#+begin_src shell
+  ./main
+#+end_src
+
+Then, run the simple python script to decode the escape sequences.
+#+begin_src shell
+  python decoder.py
+#+end_src
+
+Once this is complete, we have successfully converted three years of
+reddit posts from r/SuicideWatch into usable training data for our
+compeletely-from-scratch Markov Model using Pascal and Python ~:^)~.
+

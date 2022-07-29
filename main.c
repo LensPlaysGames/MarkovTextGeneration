@@ -25,7 +25,7 @@ size_t get_hash_from_string_passthrough(char *string, size_t hash) {
 }
 
 // POSITIVE NUMBER LARGER THAN ZERO.
-#define MARKOV_CONTEXT_SIZE 3
+#define MARKOV_CONTEXT_SIZE 4
 
 typedef struct MarkovContext {
   char *previous_words[MARKOV_CONTEXT_SIZE];
